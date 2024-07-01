@@ -175,7 +175,7 @@ h2, h3 {
 
 .contact-form input,
 .contact-form textarea {
-    width: 100%;
+    width: 80%;
     padding: 8px;
     margin-bottom: 10px;
     border-radius: 3px;
@@ -198,4 +198,7 @@ h2, h3 {
 .alink{
     text-decoration: none;
     color: white;
+}
+.fieldset{
+    width: 100%;
 }
