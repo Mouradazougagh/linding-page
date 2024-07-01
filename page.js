@@ -23,14 +23,10 @@ btn2.addEventListener("click",function(){
     var div1 = document.querySelector(".contact-container");
     div1.style.display="none";
     var h1 = document.createElement("h1");
-    h1.textContent = "Formulaire soumis avec succès !";
+    h1.textContent = "Inscription terminer !";
     h1.style.color="green";
     main.appendChild(h1);
     h1.style.textAlign="center";
-    var p = document.createElement("p");
-    p.textContent = "Merci de nous avoir contactés. Nous vous répondrons dans les plus brefs délais.";
-    p.style.textAlign="center";
-    main.appendChild(p);
 
 })
 
