@@ -63,15 +63,15 @@ if (isset($_POST['nom_produit']) && isset($_POST['Description']) && isset($_POST
             <form method="post">
                 <div class="form-group">
                     <label>Nom produit : </label>
-                    <input type="text" name="nom_produit">
+                    <input value="<?= $insc->nom_produit ?>" type="text" name="nom_produit">
                 </div>
                 <div class="form-group">
                     <label>Description :</label>
-                    <textarea type="text" name="Description"></textarea>
+                    <textarea  type="text" name="Description"><?= $insc->Description ?></textarea>
                 </div>
                 <div class="form-group">
                     <label>prix : </label>
-                    <input type="text" name="prix">
+                    <input value="<?= $insc->prix ?>"  type="text" name="prix">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-info">Mise à jour</button>

@@ -39,9 +39,9 @@ $produits = $sql->fetchAll(PDO::FETCH_OBJ);
 <table border="1">
 <tr>
     <th><b>ID :</b></th>
-    <th><b>Nom :</b></th>
-    <th><b>Email :</b></th>
-    <th><b>Password :</b></th>
+    <th><b>Nom de produit :</b></th>
+    <th><b>Description  :</b></th>
+    <th><b>prix :</b></th>
 </tr>
 
 <?php foreach($produits as $produit): ?>
