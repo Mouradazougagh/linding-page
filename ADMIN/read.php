@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..//styles.css">
-    <title>Mourad store<</title>
+    <link rel="stylesheet" href="..//style2.css">
+    <title>Mourad store</title>
 </head>
 <body>
     <header>
@@ -18,17 +18,49 @@
                 <li><a href="..//html/file.html">Home</a></li>
                 <li><a href="..//html/about.html">About</a></li>
                 <li><a href="..//html/catalog.html">catalogue</a></li>
-                <li><a href="..//html/contact .html">Contact</a></li>
+                <li><a href="..//html/contact.html">Contact</a></li>
                 <li><a href="..//PHP/inscription.php">S'inscrire</a></li>
             </ul>
         </nav>
     </header>
-    <main id="main1">
-        <h1>about us :</h1>
-        <p>
-            En français, "t-shirt" se traduit par "tee-shirt" ou simplement "t-shirt." <br> C'est un vêtement à manches courtes avec un col rond, <br> souvent en coton ou en mélange de tissus. <br> Les t-shirts sont très populaires en tant que vêtements décontractés et servent souvent de support pour divers designs, <br> logos et messages.  <br>Ils sont polyvalents et peuvent être portés dans divers contextes,<br> du quotidien décontracté aux activités sportives.
-        </p>
-    </main>
+
+    
+
+<?php
+require 'conx.php';
+
+$sql = $conn->prepare("SELECT * FROM `produits`");
+$sql->execute();
+$produits = $sql->fetchAll(PDO::FETCH_OBJ);
+?>
+
+
+
+<table border="1">
+<tr>
+    <th><b>ID :</b></th>
+    <th><b>Nom :</b></th>
+    <th><b>Email :</b></th>
+    <th><b>Password :</b></th>
+</tr>
+
+<?php foreach($produits as $produit): ?>
+<tr>
+    <td><?= $produit->id ?></td>
+    <td><?= $produit->nom_produit ?></td>
+    <td><?= $produit->Description  ?></td>
+    <td><?= $produit->prix ?> DH</td>
+    <td>  
+        <button><a href="edit.php?id=<?= $produit->id ?>">Edit</a></button>
+        <button><a onclick="return confirm('vous voulez suprimer la person de id =<?= $produit->id ?>')" href="delete.php?id=<?= $produit->id ?>">Supprimer </a></button>
+      
+
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+
     <footer>
         <div class="contact">
             <h2>Contactez-nous</h2>
@@ -51,5 +83,6 @@
         </div>
         <p>&copy; 2024 t-shirt By Mourad Store</p>
     </footer>
-</body>
-</html>
+
+    </body>
+    </html>
