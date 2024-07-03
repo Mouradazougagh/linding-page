@@ -31,13 +31,15 @@
     <div class="contact-container">
     <h1>Informations sur le produit : </h1>
            
-            <form class="contact-form" action="ajouter.php" method="post">
+            <form class="contact-form" action="ajouter.php" method="post" enctype="multipart/form-data">
             <label for="nom_produit">Nom de produit:</label>
                 <input class="i1" type="text" id="nompr" name="nom_produit" required><br>
                 <label for="Description">Description :</label>
                 <textarea class="t1"  id="Description" name="Description" required></textarea><br>
                 <label for="prix">prix:  (DH)</label>
                 <input class="i1" type="text" id="prix" name="prix" required><br>
+                <label for="quntite">Quntite : </label>
+                <input class="i1" type="text" id="quntite" name="quntite" required><br>
                 <button id="btn1" type="submit">Envoyer</button>
             </form>
         </div>
@@ -79,14 +81,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nom_produit = !empty($_POST['nom_produit']) ? $_POST['nom_produit'] : null;
     $Description = !empty($_POST['Description']) ? $_POST['Description'] : null;
     $prix = !empty($_POST['prix']) ? $_POST['prix'] : null;
+    $quntite = !empty($_POST['quntite']) ? $_POST['quntite'] : null;
 
-    if ($nom_produit && $Description && $prix) {
+    if ($nom_produit && $Description && $prix && $quntite) {
         try {
-            $stmt = $conn->prepare("INSERT INTO produits (nom_produit, Description, prix) VALUES (?,?,?)");
+            $stmt = $conn->prepare("INSERT INTO produits (nom_produit, Description, prix,quntite) VALUES (?,?,?,?)");
             $stmt->bindParam(1, $nom_produit);
             $stmt->bindParam(2, $Description);
             $stmt->bindParam(3, $prix);
-
+            $stmt->bindParam(4, $quntite);
+            
             if ($stmt->execute()) {
                 echo "Inscription terminée!";
                 header("Location: read.php");

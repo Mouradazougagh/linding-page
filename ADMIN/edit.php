@@ -38,12 +38,13 @@ $sql = $conn->prepare('SELECT * FROM produits WHERE id = :id');
 $sql->execute([':id' => $id]);
 $insc = $sql->fetch(PDO::FETCH_OBJ);
 
-if (isset($_POST['nom_produit']) && isset($_POST['Description']) && isset($_POST['prix'])) {
+if (isset($_POST['nom_produit']) && isset($_POST['Description']) && isset($_POST['prix']) && isset($_POST['quntite']) ){
     $nom_produit = $_POST['nom_produit'];
     $Description = $_POST['Description'];
     $prix = $_POST['prix'];
-    $updateSql = $conn->prepare('UPDATE produits SET nom_produit=:nom_produit, Description=:Description, prix=:prix WHERE id=:id');
-    if ($updateSql->execute([':id' => $id, ':nom_produit' => $nom_produit, ':Description' => $Description, ':prix' => $prix])) {
+    $quntite =  $_POST['quntite'];
+    $updateSql = $conn->prepare('UPDATE produits SET nom_produit=:nom_produit, Description=:Description, prix=:prix, quntite=:quntite WHERE id=:id');
+    if ($updateSql->execute([':id' => $id, ':nom_produit' => $nom_produit, ':Description' => $Description, ':prix' => $prix, ':quntite'=>$quntite])) {
         header("location: read.php");
         exit; 
     } else {
@@ -72,6 +73,10 @@ if (isset($_POST['nom_produit']) && isset($_POST['Description']) && isset($_POST
                 <div class="form-group">
                     <label>prix : </label>
                     <input value="<?= $insc->prix ?>"  type="text" name="prix">
+                </div>
+                <div class="form-group">
+                    <label>Quntite : </label>
+                    <input value="<?= $insc->quntite ?>"  type="text" name="quntite">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-info">Mise à jour</button>
