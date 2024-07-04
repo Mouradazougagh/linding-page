@@ -43,6 +43,7 @@ $produits = $sql->fetchAll(PDO::FETCH_OBJ);
     <th><b>Description  :</b></th>
     <th><b>prix :</b></th>
     <th><b>Quntite :</b></th>
+    <th><b>Images :</b></th>
 </tr>
 
 <?php foreach($produits as $produit): ?>
@@ -52,6 +53,7 @@ $produits = $sql->fetchAll(PDO::FETCH_OBJ);
     <td><?= $produit->Description  ?></td>
     <td><?= $produit->prix ?> DH</td>
     <td><?= $produit->quntite ?></td>
+    <td><img src="<?= $produit->image_path ?>" alt="Image de <?= $produit->nom_produit   ?>"></td>
     <td>  
         <button><a href="edit.php?id=<?= $produit->id ?>">Edit</a></button>
         <button><a onclick="return confirm('vous voulez suprimer la person de id =<?= $produit->id ?>')" href="delete.php?id=<?= $produit->id ?>">Supprimer </a></button>

@@ -7,85 +7,92 @@
     <title>Mourad store</title>
 </head>
 <body>
-    <header>
+<header>
         <div class="logo">
-            <img src="..//images/logo.jpg" alt="logo">
+            <img src="../images/logo.jpg" alt="logo">
             <span id="s1">Mourad Store</span>
         </div>
         
         <nav>
             <ul>
-                <li><a href="..//html/file.html">Home</a></li>
-                <li><a href="..//html/about.html">About</a></li>
-                <li><a href="..//html/catalog.html">catalogue</a></li>
-                <li><a href="..//html/contact.html">Contact</a></li>
-                <li><a href="..//PHP/inscription.php">S'inscrire</a></li>
+                <li><a href="../html/file.html">Home</a></li>
+                <li><a href="../html/about.html">About</a></li>
+                <li><a href="../html/catalog.html">Catalogue</a></li>
+                <li><a href="../html/contact.html">Contact</a></li>
+                <li><a href="../PHP/inscription.php">S'inscrire</a></li>
             </ul>
         </nav>
     </header>
 
-    
-
-
-
-
-
     <?php
-require 'conx.php';
+    require 'conx.php';
 
-$id = $_GET['id'];
-$sql = $conn->prepare('SELECT * FROM produits WHERE id = :id');
-$sql->execute([':id' => $id]);
-$insc = $sql->fetch(PDO::FETCH_OBJ);
+    $id = $_GET['id'];
+    $sql = $conn->prepare('SELECT * FROM produits WHERE id = :id');
+    $sql->execute([':id' => $id]);
+    $insc = $sql->fetch(PDO::FETCH_OBJ);
 
-if (isset($_POST['nom_produit']) && isset($_POST['Description']) && isset($_POST['prix']) && isset($_POST['quntite']) ){
-    $nom_produit = $_POST['nom_produit'];
-    $Description = $_POST['Description'];
-    $prix = $_POST['prix'];
-    $quntite =  $_POST['quntite'];
-    $updateSql = $conn->prepare('UPDATE produits SET nom_produit=:nom_produit, Description=:Description, prix=:prix, quntite=:quntite WHERE id=:id');
-    if ($updateSql->execute([':id' => $id, ':nom_produit' => $nom_produit, ':Description' => $Description, ':prix' => $prix, ':quntite'=>$quntite])) {
-        header("location: read.php");
-        exit; 
-    } else {
-        
-        $errorInfo = $updateSql->errorInfo();
-        echo "Error: " . $errorInfo[2];
+    if (isset($_POST['nom_produit']) && isset($_POST['Description']) && isset($_POST['prix']) && isset($_POST['quntite'])) {
+        $nom_produit = $_POST['nom_produit'];
+        $Description = $_POST['Description'];
+        $prix = $_POST['prix'];
+        $quntite =  $_POST['quntite'];
+
+        // Image handling
+        if (isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
+            $image_name = $_FILES["image"]["name"];
+            $image_tmp = $_FILES["image"]["tmp_name"];
+            $image_path = "../images/" . sha1($image_name) ;
+            move_uploaded_file($image_tmp, $image_path);
+        } else {
+            $image_path = $insc->image_path; 
+        }
+
+        $updateSql = $conn->prepare('UPDATE produits SET nom_produit=:nom_produit, Description=:Description, prix=:prix, quntite=:quntite, image_path=:image_path WHERE id=:id');
+        if ($updateSql->execute([':id' => $id, ':nom_produit' => $nom_produit, ':Description' => $Description, ':prix' => $prix, ':quntite' => $quntite, ':image_path' => $image_path])) {
+            header("location: read.php");
+            exit; 
+        } else {
+            $errorInfo = $updateSql->errorInfo();
+            echo "Error: " . $errorInfo[2];
+        }
     }
-}
-?>
+    ?>
 
-<div class="container">
-    <div class="card mt-5">
-        <div class="card-header">
-            <h2>Mise à jour d'un produit</h2>
-        </div>
-        <div class="card-body">
-            <form method="post">
-                <div class="form-group">
-                    <label>Nom produit : </label>
-                    <input value="<?= $insc->nom_produit ?>" type="text" name="nom_produit">
-                </div>
-                <div class="form-group">
-                    <label>Description :</label>
-                    <textarea  type="text" name="Description"><?= $insc->Description ?></textarea>
-                </div>
-                <div class="form-group">
-                    <label>prix : </label>
-                    <input value="<?= $insc->prix ?>"  type="text" name="prix">
-                </div>
-                <div class="form-group">
-                    <label>Quntite : </label>
-                    <input value="<?= $insc->quntite ?>"  type="text" name="quntite">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-info">Mise à jour</button>
-                </div>
-            </form>
+    <div class="container">
+        <div class="card mt-5">
+            <div class="card-header">
+                <h2>Mise à jour d'un produit</h2>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Nom produit : </label>
+                        <input value="<?= htmlspecialchars($insc->nom_produit) ?>" type="text" name="nom_produit" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Description :</label>
+                        <textarea name="Description" class="form-control"><?= htmlspecialchars($insc->Description) ?></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Prix : </label>
+                        <input value="<?= htmlspecialchars($insc->prix) ?>" type="text" name="prix" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Quantité : </label>
+                        <input value="<?= htmlspecialchars($insc->quntite) ?>" type="text" name="quntite" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Image :</label>
+                        <input type="file" name="image" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-info">Mise à jour</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-
 
 
 

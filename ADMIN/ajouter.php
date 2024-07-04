@@ -40,6 +40,7 @@
                 <input class="i1" type="text" id="prix" name="prix" required><br>
                 <label for="quntite">Quntite : </label>
                 <input class="i1" type="text" id="quntite" name="quntite" required><br>
+                <input class="i1" type="file" id="img" name="img" required><br>
                 <button id="btn1" type="submit">Envoyer</button>
             </form>
         </div>
@@ -83,13 +84,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $prix = !empty($_POST['prix']) ? $_POST['prix'] : null;
     $quntite = !empty($_POST['quntite']) ? $_POST['quntite'] : null;
 
+
     if ($nom_produit && $Description && $prix && $quntite) {
         try {
-            $stmt = $conn->prepare("INSERT INTO produits (nom_produit, Description, prix,quntite) VALUES (?,?,?,?)");
+
+            $photo_tmp= $_FILES["img"]["tmp_img"];
+            $photo_name= $_FILES["img"]["name"];
+
+            $to = "./image/".sha1($photo_name) ;
+
+            move_uploaded_file($photo_tmp,$to);
+
+
+
+            $stmt = $conn->prepare("INSERT INTO produits (nom_produit, Description, prix,quntite,image_path) VALUES (?,?,?,?,?)");
             $stmt->bindParam(1, $nom_produit);
             $stmt->bindParam(2, $Description);
             $stmt->bindParam(3, $prix);
             $stmt->bindParam(4, $quntite);
+            $stmt->bindParam(5, $to);
+
             
             if ($stmt->execute()) {
                 echo "Inscription terminée!";
