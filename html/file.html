@@ -3,67 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mourad store</title>
-    <link rel="stylesheet" href="..//styles.css">
+    <title>Mourad Store</title>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="..//images/logo.jpg" alt="logo">
+            <img src="../images/logo.jpg" alt="logo">
             <span id="s1">Mourad Store</span>
         </div>
         
         <nav>
             <ul>
-                <li><a href="..//html/file.html">Home</a></li>
-                <li><a href="..//html/about.html">About</a></li>
-                <li><a href="..//html/catalog.html">catalogue</a></li>
-                <li><a href="..//html/contact .html">Contact</a></li>
-                <li><a href="..//PHP/inscription.php">S'inscrire</a></li>
+                <li><a href="../html/file.html">Home</a></li>
+                <li><a href="../html/about.html">About</a></li>
+                <li><a href="../html/catalog.html">Catalogue</a></li>
+                <li><a href="../html/contact.html">Contact</a></li>
+                <li><a href="../ADMIN/inscription.php">S'inscrire</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <div class="content">
-            <h1>T-Shirt Mania: Style Illimité</h1>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Bienvenue chez Mourad Store</h1>
+                <p>Découvrez notre sélection de vêtements et accessoires de haute qualité, conçus pour allier confort et style.</p>
+            </div>
             <video controls muted>
                 <source src="..//vedio.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            <br>
-            <p>Découvrez nos t-shirts de haute qualité, fabriqués avec les meilleurs matériaux pour garantir confort et style. Chaque t-shirt est conçu pour durer, avec des motifs uniques qui vous permettront de vous démarquer.</p>
+        </section>
+
+        <section class="featured-products">
+            <h2>Nos Produits en Vedette</h2>
             <div class="products">
                 <div class="product">
-                    <img src="..//images/tishertcopie1.PNG" alt="T-shirt 1">
-                    <p><strong>Caractéristiques :</strong></p>
-                    <ul>
-                        <li>100% coton</li>
-                        <li>Disponible en plusieurs tailles</li>
-                        <li>Couleur: Blanc</li>
-                    </ul>
-                    <p class="price"><del><span class="span3">150 DH</span> </del><br><span class="span2">100 DH</span> </p>
+                    <img src="../images/tishertcopie1.PNG" alt="T-shirt 1">
+                    <h3>T-Shirt Blanc</h3>
+                    <p>Confortable et élégant pour toutes les occasions.</p>
+                    <p class="price"><span class="span3"><del>150 DH</del></span><br><span class="span2">100 DH</span></p>
                     <button class="buy-now"><a class="alink" href="https://wa.me/212705220576" target="_blank">Acheter Maintenant</a></button>
                 </div>
                 <div class="product">
-                    <img src="..//images/tishertcopie2.PNG" alt="T-shirt 2">
-                    <p><strong>Caractéristiques :</strong></p>
-                    <ul>
-                        <li>100% coton</li>
-                        <li>Disponible en plusieurs tailles</li>
-                        <li>Couleur: Noir</li>
-                    </ul>
-                    <p class="price"><del><span class="span3">150 DH</span> </del><br><span class="span2">100 DH</span> </p>
+                    <img class="img1" src="../../images/ens2.jpg">
+                    <h3>Ensemble de jogging</h3>
+                    <p>Parfait pour les activités sportives et les loisirs.</p>
+                    <p class="price"><span class="span3"><del>350 DH</del></span><br><span class="span2">250 DH</span></p>
+                    <button class="buy-now"><a class="alink" href="https://wa.me/212705220576" target="_blank">Acheter Maintenant</a></button>
+                </div>
+                <div class="product">
+                    <img src="../images/pant1.jpg" alt="Pantalon de Sport">
+                    <h3>Pantalon de Sport</h3>
+                    <p>Idéal pour l'entraînement et les activités sportives.</p>
+                    <p class="price">150 DH</p>
+                    <button class="buy-now"><a class="alink" href="https://wa.me/212705220576" target="_blank">Acheter Maintenant</a></button>
+                </div>
+                <div class="product">
+                    <img src="../../images/cs1.jpg" alt="Casquette">
+                    <h3>Casquette Noire</h3>
+                    <p>Protégez-vous du soleil avec style.</p>
+                    <p class="price">50 DH</p>
                     <button class="buy-now"><a class="alink" href="https://wa.me/212705220576" target="_blank">Acheter Maintenant</a></button>
                 </div>
             </div>
-            <p>Profitez de notre offre exceptionnelle de livraison gratuite dans toutes les villes du Maroc ! Que vous soyez à Agadir,Casablanca, Marrakech, Tanger, Rabat ou dans toute autre ville marocaine, nous nous engageons à vous livrer gratuitement vos produits directement à votre porte. N'attendez plus et passez votre commande dès maintenant pour bénéficier de cette offre exclusive.</p>
-        </div>
+        </section>
+
+        <section class="delivery">
+            <h2>Livraison Gratuite dans Tout le Maroc</h2>
+            <p>Profitez de notre offre de livraison gratuite dans toutes les villes du Maroc. Que vous soyez à Agadir, Casablanca, Marrakech, Tanger, Rabat ou dans toute autre ville marocaine, nous nous engageons à vous livrer vos produits directement à votre porte.</p>
+        </section>
     </main>
     <footer>
         <div class="contact">
             <h2>Contactez-nous</h2>
             <div class="contact-info">
-                <img src="..//images/logo.jpg" alt="logo" class="footer-logo">
+                <img src="../images/logo.jpg" alt="logo" class="footer-logo">
                 <p>Email : <a href="mailto:mouradazougagh61@gmail.com">mouradazougagh61@gmail.com</a></p>
                 <p>Téléphone : <a href="tel:+212705220576">+212 705220576</a></p>
                 <p>Adresse : RES TAFOUKT FADISSA AGADIR MAROC</p>
@@ -76,10 +91,91 @@
             <div class="additional-info">
                 <h3>Autres Informations</h3>
                 <p><strong>Problèmes :</strong> Si vous rencontrez des problèmes avec votre commande, veuillez nous contacter immédiatement.</p>
-                <p><strong>Méthodes de paiement :</strong> Paiement à la livraison .</p>
+                <p><strong>Méthodes de paiement :</strong> Paiement à la livraison.</p>
             </div>
         </div>
-        <p>&copy; 2024 t-shirt By Mourad Store</p>
+        <p>&copy; 2024 T-Shirt By Mourad Store</p>
     </footer>
+    <style>
+        body{
+            text-align: center;
+        }
+        video{
+            width: 35%;
+        }
+    
+
+.featured-products {
+    text-align: center; 
+    padding: 20px 0; 
+}
+
+.products {
+    display: inline-block; 
+    text-align: left; 
+    margin: 0 auto;
+}
+
+
+.featured-products {
+    padding: 10px 0; 
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    gap: 10px; 
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+}
+.product .img1 {
+    max-width: 100%;
+    height: 350px;
+}
+.product h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product p {
+    margin-bottom: 10px;
+}
+
+.product .price {
+    font-size: 26px;
+}
+.product .span3 {
+    font-size: 16px;
+}
+
+.buy-now {
+    margin-top: 10px;
+}
+
+.buy-now a {
+    display: inline-block;
+    padding: 8px 16px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.buy-now a:hover {
+    background-color: rgb(222, 103, 103);
+}
+
+    </style>
 </body>
 </html>

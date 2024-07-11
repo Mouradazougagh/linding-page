@@ -3,145 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..//styles.css">
-    <title>Mourad store</title>
+    <link rel="stylesheet" href="../styles.css">
+    <title>Mourad Store - Catalogue</title>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="..//styles.css" alt="logo">
+            <img src="../images/logo.jpg" alt="logo">
             <span id="s1">Mourad Store</span>
         </div>
         
         <nav>
             <ul>
-                <li><a href="..//html/file.html">Home</a></li>
-                <li><a href="..//html/about.html">About</a></li>
-                <li><a href="..//html/catalog.html">catalogue</a></li>
-                <li><a href="..//html/contact .html">Contact</a></li>
-                <li><a href="..//PHP/inscription.php">S'inscrire</a></li>
+                <li><a href="../html/file.html">Home</a></li>
+                <li><a href="../html/about.html">About</a></li>
+                <li><a href="../html/catalog.html">Catalogue</a></li>
+                <li><a href="../html/contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
+        <section class="catalog-intro">
+            <h1>Catalogue des Produits</h1>
+            <p>Découvrez notre large gamme de produits. Cliquez sur une catégorie pour voir les produits disponibles.</p>
+        </section>
         
-<style>
-    .products {
-        display: flex;
-        flex-wrap: wrap;
-
-        margin-top: 20px;
-    }
-    .product {
-        background: #fff;
-        border: 1px solid #ddd;
-        margin: 10px;
-        padding: 20px;
-        width: 20%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .product img {
-        max-width: 100%;
-        height: auto;
-    }
-    .product h3 {
-        margin-top: 10px;
-        color: #333;
-    }
-    .product p {
-        color: #666;
-    }
-    .product button {
-        background: #333;
-        color: #fff;
-        border: 0;
-        padding: 10px;
-        cursor: pointer;
-        width: 100%;
-    }
-    .product button:hover {
-        background: #555;
-    }
-    .alink{
-        text-decoration: none;
-        color: white;
-    }
-
-    </style>
-
-    <div id="branding">
-        <h1>Catalogue du Produit</h1>
-    </div>
-    <div class="container">
-        <div class="products">
-
-            <div class="product">
-                <img src="..//images/tishertcopie1.PNG" alt="Produit 1">
-                <h3>Short Sleeve T-Shirt</h3>
-                <p>Le plus courant, avec des manches courtes, généralement en coton.</p>
-                <p>prix : 100 DH </p>
-                <button> <a class="alink" href="https://wa.me/212705220576" target="_blank">Acheter</a></button>
+        <section class="catalog-categories">
+            <div class="category">
+                <a href="../html/prouduits/tishert.html">
+                <img src="../images/tishertcopie1.PNG" alt="T-shirts">
+                <h2>T-shirts</h2></a>
+                
             </div>
-            <div class="product">
-                <img src="..//images/tishertcopie2.PNG" alt="Produit 1">
-                <h3>T-shirt à séchage rapide</h3>
-                <p> Fabriqué à partir de matériaux qui évacuent l'humidité, idéal pour les activités sportives.</p>
-                <p>prix : 100 DH </p>
-                <button> <a class="alink" href="https://wa.me/212705220576" target="_blank">Acheter</a></button>
+            <div class="category">
+                <a href="../html/prouduits/pantalons.html">
+                <img src="../images/pant1.jpg" alt="Pantalons">
+                <h2>Pantalons</h2></a>
             </div>
-            <div class="product">
-                <img src="..//images/tishert3.PNG" alt="Produit 1">
-                <h3>T-shirt de compression </h3>
-                <p>Offre un soutien supplémentaire aux muscles pendant l'exercice.</p>
-                <p>prix : 90 DH </p>
-                <button> <a class="alink" href="https://wa.me/212705220576" target="_blank">Acheter</a></button>
+            <div class="category">
+                <a href="../html/prouduits/ensemble.html">
+                <img src="../images/ens1.jpg" alt="Ensembles">
+                <h2>Ensembles</h2></a>
             </div>
-            <div class="product">
-                <img src="..//images/tishert4.PNG" alt="Produit 1">
-                <h3> T-Shirt col rond</h3>
-                <p> Avec un col rond serré.</p>
-                <p>prix : 90 DH </p>
-                <button> <a class="alink" href="https://wa.me/212705220576" target="_blank">Acheter</a></button>
+            <div class="category">
+                <a href="../html/prouduits/casquette.html">
+                <img src="../images/cs1.jpg" alt="Casquettes">
+                <h2>Casquettes</h2></a>
             </div>
-            <div class="product">
-                <img src="..//images/tishert5.PNG" alt="Produit 1">
-                <h3>Short Sleeve T-Shirt</h3>
-                <p>Le plus courant, avec des manches courtes, généralement en coton.</p>
-                <p>prix : 120 DH </p>
-                <button> <a class="alink" href="https://wa.me/212705220576" target="_blank">Acheter</a></button>
-            </div>
-            <div class="product">
-                <img src="../images/tishert6.PNG" alt="Produit 1">
-                <h3>T-shirt de compression </h3>
-                <p>Offre un soutien supplémentaire aux muscles pendant l'exercice.</p>
-                <p>prix : 120 DH </p>
-                <button> <a class="alink" href="https://wa.me/212705220576" target="_blank">Acheter</a></button>
-            </div>
-            <div class="product">
-                <img src="../images/tishert7.PNG" alt="Produit 1">
-                <h3>T-Shirt col rond</h3>
-                <p>Avec un col rond serré.</p>
-                <p>prix : 90 DH </p>
-                <button> <a class="alink" href="https://wa.me/212705220576" target="_blank">Acheter</a></button>
-            </div>
-            <div class="product">
-                <img src="..//images/tishertcopie1.PNG" alt="Produit 1">
-                <h3>Short Sleeve T-Shirt</h3>
-                <p>Le plus courant, avec des manches courtes, généralement en coton.</p>
-                <p>prix : 100 DH </p>
-                <button> <a class="alink" href="https://wa.me/212705220576" target="_blank">Acheter</a></button>
-            </div>
-            <div class="product">
-                <img src="..//images/tishertcopie2.PNG" alt="Produit 1">
-                <h3>T-shirt à séchage rapide</h3>
-                <p>Fabriqué à partir de matériaux qui évacuent l'humidité, idéal pour les activités sportives.</p>
-                <p>prix : 100 DH </p>
-                <button> <a class="alink" href="https://wa.me/212705220576" target="_blank">Acheter</a></button>
-            </div>
-        </div>
-    </div>
-
-
+        </section>
     </main>
     <footer>
         <div class="contact">
@@ -163,7 +72,74 @@
                 <p><strong>Méthodes de paiement :</strong> Paiement à la livraison.</p>
             </div>
         </div>
-        <p>&copy; 2024 t-shirt By Mourad Store</p>
+        <p>&copy; 2024 Mourad Store</p>
     </footer>
+
+
+
+    <style>
+
+
+
+main {
+    padding: 20px;
+}
+
+.catalog-intro {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.catalog-intro h1 {
+    font-size: 32px;
+    color: #333;
+}
+
+.catalog-intro p {
+    font-size: 18px;
+    color: #666;
+}
+
+.catalog-categories {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.catalog-categories .category {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 22%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.catalog-categories .category:hover {
+    transform: scale(1.05);
+}
+
+.catalog-categories .category img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.catalog-categories .category h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 15px;
+}
+
+.catalog-categories .category  a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+    </style>
 </body>
 </html>

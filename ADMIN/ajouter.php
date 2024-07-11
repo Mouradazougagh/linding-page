@@ -19,7 +19,7 @@
                 <li><a href="..//html/about.html">About</a></li>
                 <li><a href="..//html/catalog.html">catalogue</a></li>
                 <li><a href="..//html/contact.html">Contact</a></li>
-                <li><a href="..//PHP/inscription.php">S'inscrire</a></li>
+                <li><a href="..//ADMIN/inscription.php">S'inscrire</a></li>
             </ul>
         </nav>
     </header>
@@ -40,7 +40,7 @@
                 <input class="i1" type="text" id="prix" name="prix" required><br>
                 <label for="quntite">Quntite : </label>
                 <input class="i1" type="text" id="quntite" name="quntite" required><br>
-                <input class="i1" type="file" id="img" name="img" required><br>
+                <input class="i1" type="file" id="img" name="img" required><br><br>
                 <button id="btn1" type="submit">Envoyer</button>
             </form>
         </div>
@@ -88,10 +88,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($nom_produit && $Description && $prix && $quntite) {
         try {
 
-            $photo_tmp= $_FILES["img"]["tmp_img"];
+            $photo_tmp= $_FILES["img"]["tmp_name"];
             $photo_name= $_FILES["img"]["name"];
 
-            $to = "./image/".sha1($photo_name) ;
+            $target_dir = "./image/";
+            $to= $target_dir . sha1($photo_name) . basename($photo_name);
 
             move_uploaded_file($photo_tmp,$to);
 
